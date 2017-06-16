@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		563614C01EF41CC70002B387 /* Enumrations.h in Headers */ = {isa = PBXBuildFile; fileRef = 563614BF1EF41CC70002B387 /* Enumrations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		566E26881EF34AE700E20924 /* FirstFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566E267E1EF34AE700E20924 /* FirstFramework.framework */; };
-		566E268D1EF34AE700E20924 /* FirstFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E268C1EF34AE700E20924 /* FirstFrameworkTests.m */; };
 		566E268F1EF34AE800E20924 /* FirstFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E26811EF34AE700E20924 /* FirstFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		566E26A61EF34B9100E20924 /* Task.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E269C1EF34B9100E20924 /* Task.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		566E26A71EF34B9100E20924 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E269D1EF34B9100E20924 /* Task.m */; };
@@ -19,6 +18,8 @@
 		566E26AF1EF34D6D00E20924 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E26AD1EF34D6D00E20924 /* Reachability.m */; };
 		566E26F11EF365EF00E20924 /* UIImageView+FirstFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E26EF1EF365EF00E20924 /* UIImageView+FirstFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		566E26F21EF365EF00E20924 /* UIImageView+FirstFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E26F01EF365EF00E20924 /* UIImageView+FirstFramework.m */; };
+		5683F6581EF46AE1007D4EA8 /* ImageViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5683F6571EF46AE1007D4EA8 /* ImageViewTests.m */; };
+		5683F65B1EF473F1007D4EA8 /* TasksManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5683F65A1EF473F1007D4EA8 /* TasksManagerTests.m */; };
 		56F228231EF458BA002C4792 /* ErrorUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 56F228211EF458BA002C4792 /* ErrorUtility.h */; };
 		56F228241EF458BA002C4792 /* ErrorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F228221EF458BA002C4792 /* ErrorUtility.m */; };
 /* End PBXBuildFile section */
@@ -39,7 +40,6 @@
 		566E26811EF34AE700E20924 /* FirstFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstFramework.h; sourceTree = "<group>"; };
 		566E26821EF34AE700E20924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		566E26871EF34AE700E20924 /* FirstFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirstFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		566E268C1EF34AE700E20924 /* FirstFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstFrameworkTests.m; sourceTree = "<group>"; };
 		566E268E1EF34AE700E20924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		566E269C1EF34B9100E20924 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		566E269D1EF34B9100E20924 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		566E26AD1EF34D6D00E20924 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		566E26EF1EF365EF00E20924 /* UIImageView+FirstFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+FirstFramework.h"; sourceTree = "<group>"; };
 		566E26F01EF365EF00E20924 /* UIImageView+FirstFramework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+FirstFramework.m"; sourceTree = "<group>"; };
+		5683F6571EF46AE1007D4EA8 /* ImageViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewTests.m; sourceTree = "<group>"; };
+		5683F65A1EF473F1007D4EA8 /* TasksManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksManagerTests.m; sourceTree = "<group>"; };
 		56F228211EF458BA002C4792 /* ErrorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorUtility.h; sourceTree = "<group>"; };
 		56F228221EF458BA002C4792 /* ErrorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,8 +115,9 @@
 		566E268B1EF34AE700E20924 /* FirstFrameworkTests */ = {
 			isa = PBXGroup;
 			children = (
-				566E268C1EF34AE700E20924 /* FirstFrameworkTests.m */,
 				566E268E1EF34AE700E20924 /* Info.plist */,
+				5683F6571EF46AE1007D4EA8 /* ImageViewTests.m */,
+				5683F65A1EF473F1007D4EA8 /* TasksManagerTests.m */,
 			);
 			path = FirstFrameworkTests;
 			sourceTree = "<group>";
@@ -248,7 +251,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				566E268D1EF34AE700E20924 /* FirstFrameworkTests.m in Sources */,
+				5683F6581EF46AE1007D4EA8 /* ImageViewTests.m in Sources */,
+				5683F65B1EF473F1007D4EA8 /* TasksManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
