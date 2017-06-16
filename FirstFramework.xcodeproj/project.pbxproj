@@ -14,7 +14,7 @@
 		566E26A71EF34B9100E20924 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E269D1EF34B9100E20924 /* Task.m */; };
 		566E26A81EF34B9100E20924 /* TasksManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E269E1EF34B9100E20924 /* TasksManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		566E26A91EF34B9100E20924 /* TasksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E269F1EF34B9100E20924 /* TasksManager.m */; };
-		566E26AE1EF34D6D00E20924 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E26AC1EF34D6D00E20924 /* Reachability.h */; };
+		566E26AE1EF34D6D00E20924 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E26AC1EF34D6D00E20924 /* Reachability.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		566E26AF1EF34D6D00E20924 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E26AD1EF34D6D00E20924 /* Reachability.m */; };
 		566E26F11EF365EF00E20924 /* UIImageView+FirstFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E26EF1EF365EF00E20924 /* UIImageView+FirstFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		566E26F21EF365EF00E20924 /* UIImageView+FirstFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E26F01EF365EF00E20924 /* UIImageView+FirstFramework.m */; };

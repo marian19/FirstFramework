@@ -72,36 +72,39 @@ NSOperationQueue *taskQueue;
     NSLog(@" taskQueue.operationCount %lu" , (unsigned long)taskQueue.operationCount);
     Reachability *reachability = Reachability.reachabilityForInternetConnection;
     
-    reachability.startNotifier;
-    
-    if ([reachability currentReachabilityStatus] == NotReachable) {
+    BOOL isReachabilityStartNotifier = reachability.startNotifier;
+    if (isReachabilityStartNotifier) {
         
-        
-         error = [ErrorUtility errorWithCode:-8 localizedDescriptionKey:@"Operation was unsuccessful." localizedFailureReasonErrorKey:@"Check your internet Connection" localizedRecoverySuggestionErrorKey:nil];
-        NSLog(@"NotReachable %@",error.description);
-
-    }else if ([reachability currentReachabilityStatus] == ReachableViaWiFi) {
-        
-        if (numberOfRequest > 6) {
-
-            error = [ErrorUtility getReachMaxNumberRequestsError];
-            NSLog(@" ReachableViaWiFi %@",error.description);
-
+        if ([reachability currentReachabilityStatus] == NotReachable) {
+            
+            
+            error = [ErrorUtility errorWithCode:-8 localizedDescriptionKey:@"Operation was unsuccessful." localizedFailureReasonErrorKey:@"Check your internet Connection" localizedRecoverySuggestionErrorKey:nil];
+            NSLog(@"NotReachable %@",error.description);
+            
+        }else if ([reachability currentReachabilityStatus] == ReachableViaWiFi) {
+            
+            if (numberOfRequest > 6) {
+                
+                error = [ErrorUtility getReachMaxNumberRequestsError];
+                NSLog(@" ReachableViaWiFi %@",error.description);
+                
+            }
+            
+        }else if ([reachability currentReachabilityStatus] == ReachableViaWWAN) {
+            if (numberOfRequest > 2) {
+                
+                error = [ErrorUtility getReachMaxNumberRequestsError];
+                NSLog(@"ReachableViaWWAN %@",error.description);
+                
+            }
+            
         }
-        
-    }else if ([reachability currentReachabilityStatus] == ReachableViaWWAN) {
-        if (numberOfRequest > 2) {
-
-            error = [ErrorUtility getReachMaxNumberRequestsError];
-            NSLog(@"ReachableViaWWAN %@",error.description);
-
+        if (error != nil) {
+            NSLog(@"%@",error.description);
+            
         }
-        
     }
-    if (error != nil) {
-        NSLog(@"%@",error.description);
-        
-    }
+    [reachability stopNotifier];
     return error;
 }
 
