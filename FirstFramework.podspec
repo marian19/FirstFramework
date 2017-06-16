@@ -16,6 +16,7 @@ s.source_files  = "FirstFramework", "FirstFramework/**/*.{h,m}"
  s.public_header_files = "FirstFramework/**/*.h"
 
 s.framework  = 'UIKit'
+s.framework    = 'SystemConfiguration'
 
 s.requires_arc = true
 
