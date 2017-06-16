@@ -7,11 +7,13 @@
 //
 
 #import "Task.h"
+#import "ErrorUtility.h"
+
 
 @implementation Task
 
 
--(void)requestWithPath:(NSString *)urlString method:(HTTPRequestMethod)HTTPRequestMethod withParameters:(NSDictionary*)parameters successCompletionHandler:(void (^)(id  responseObject))success failureCompletionHandler:(void (^)(NSError * error))failure{
+-(void)dataTaskWithURL:(NSString *)urlString method:(HTTPRequestMethod)HTTPRequestMethod withParameters:(NSDictionary*)parameters successCompletionHandler:(void (^)(NSData*  responseData))success failureCompletionHandler:(void (^)(NSError * error))failure{
     
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -23,12 +25,18 @@
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     
     [request setTimeoutInterval:600.0];
-    
+
+
     if (HTTPRequestMethod == HTTPRequestGET){
         [request setHTTPMethod:@"GET"];
         
         if (parameters) {
             // request body
+            if ([urlString rangeOfString:@"?"].location == NSNotFound) {
+               urlString = [urlString stringByAppendingString:@"?"];
+            }
+          
+            
             for (NSInteger i = 0; i < parameters.count; i++) {
                 NSString *currentKey = [parameters.allKeys objectAtIndex:i];
                 NSString *currentValue = [parameters.allValues objectAtIndex:i];
@@ -47,6 +55,7 @@
         
         // request url
         [request setURL:[NSURL URLWithString:urlString]];
+        
     }
     else{
         if (HTTPRequestMethod == HTTPRequestPOST)
@@ -74,13 +83,24 @@
         
     }
     
+    NSLog(@"url %@" , request.URL);
+    
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSHTTPURLResponse *httpResp = (NSHTTPURLResponse*) response;
+            
             if (httpResp.statusCode == 200) {
                 success(data);
+            }else{
+            
+                error = [ErrorUtility errorWithCode:(int)httpResp.statusCode localizedDescriptionKey:[NSString stringWithFormat:@"%ld %@" ,(long)httpResp.statusCode ,httpResp.description] localizedFailureReasonErrorKey:nil localizedRecoverySuggestionErrorKey:nil];
+                
+                failure(error);
             }
+            
         }else{
+            NSLog(@"fail %@",error.description);
+            
             failure(error);
         }
         
@@ -88,5 +108,6 @@
     }];
     [postDataTask resume];
 }
+
 
 @end

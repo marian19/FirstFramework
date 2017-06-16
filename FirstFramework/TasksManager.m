@@ -9,22 +9,23 @@
 #import "TasksManager.h"
 #import "Reachability.h"
 #import "UIKit/UIKit.h"
+#import "ErrorUtility.h"
 
 @implementation TasksManager
 NSOperationQueue *taskQueue;
 
-+ (TasksManager *)sharedHTTPClient
++ (TasksManager *) sharedTasksManager
 {
-    static TasksManager *_sharedHTTPClient = nil;
+    static TasksManager *_sharedTasksManager = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedHTTPClient = [[TasksManager alloc] init];
+        _sharedTasksManager = [[TasksManager alloc] init];
         taskQueue = [[NSOperationQueue alloc] init];
         
     });
     
-    return _sharedHTTPClient;
+    return _sharedTasksManager;
 }
 
 -(void) executingTasksInSerialOrder:(BOOL)isFIFO{
@@ -35,30 +36,32 @@ NSOperationQueue *taskQueue;
 }
 
 
-
-
-- (void)dataTaskWithURL:(NSString *)urlString method:(HTTPRequestMethod)HTTPRequestMethod withParameters:(NSDictionary*)parameters successCompletionHandler:(void (^)(id  responseObject))success failureCompletionHandler:(void (^)(NSError * error))failure{
+- (void)dataTaskWithURL:(NSString *)urlString method:(HTTPRequestMethod)HTTPRequestMethod withParameters:(NSDictionary*)parameters successCompletionHandler:(void (^)(NSData*  responseData))success failureCompletionHandler:(void (^)(NSError * error))failure{
+    
     
     NSError *error = [self isValidRequest];
     if (error == nil) {
-        [self extendingBackGroundTaskTime];
-        
         [taskQueue addOperationWithBlock:^{
             
-            [[Task new] dataTaskWithURL:urlString method:HTTPRequestMethod withParameters:parameters successCompletionHandler:^(id responseObject) {
-                success(responseObject);
+            [self extendingBackGroundTaskTime];
+            
+            [[Task new] dataTaskWithURL:urlString method:HTTPRequestMethod withParameters:parameters successCompletionHandler:^(NSData* responseData) {
+                success(responseData);
+                
             } failureCompletionHandler:^(NSError *error) {
                 failure(error);
+                NSLog(@"fail %@",error.description);
+                
             }];
         }];
         
     }else{
+        NSLog(@"fail %@",error.description);
+        
         failure(error);
     }
+    
 }
-
-
-
 
 -(NSError*)isValidRequest{
     
@@ -66,42 +69,43 @@ NSOperationQueue *taskQueue;
     
     NSUInteger numberOfRequest = taskQueue.operationCount;
     
-    if ([[Reachability new] currentReachabilityStatus] == ReachableViaWiFi) {
+    NSLog(@" taskQueue.operationCount %lu" , (unsigned long)taskQueue.operationCount);
+    Reachability *reachability = Reachability.reachabilityForInternetConnection;
+    
+    reachability.startNotifier;
+    
+    if ([reachability currentReachabilityStatus] == NotReachable) {
         
-        if (numberOfRequest == 6) {
-            return  error = [self getReachMaxNumberRequestsError];
+        
+         error = [ErrorUtility errorWithCode:-8 localizedDescriptionKey:@"Operation was unsuccessful." localizedFailureReasonErrorKey:@"Check your internet Connection" localizedRecoverySuggestionErrorKey:nil];
+        NSLog(@"NotReachable %@",error.description);
+
+    }else if ([reachability currentReachabilityStatus] == ReachableViaWiFi) {
+        
+        if (numberOfRequest > 6) {
+
+            error = [ErrorUtility getReachMaxNumberRequestsError];
+            NSLog(@" ReachableViaWiFi %@",error.description);
+
         }
         
-    }else if ([[Reachability new] currentReachabilityStatus] == ReachableViaWWAN) {
-        if (numberOfRequest == 2) {
-            return  error = [self getReachMaxNumberRequestsError];
+    }else if ([reachability currentReachabilityStatus] == ReachableViaWWAN) {
+        if (numberOfRequest > 2) {
+
+            error = [ErrorUtility getReachMaxNumberRequestsError];
+            NSLog(@"ReachableViaWWAN %@",error.description);
+
         }
-        
-    }else  {
-        NSDictionary *userInfo = @{
-                                   NSLocalizedDescriptionKey: NSLocalizedString(@"Operation was unsuccessful.", nil),
-                                   NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Connection Error", nil)
-                                   };
-        
-        return [NSError errorWithDomain:NSCocoaErrorDomain
-                                   code:-57
-                               userInfo:userInfo];
         
     }
-    
+    if (error != nil) {
+        NSLog(@"%@",error.description);
+        
+    }
     return error;
 }
 
--(NSError*)getReachMaxNumberRequestsError{
-    NSDictionary *userInfo = @{
-                               NSLocalizedDescriptionKey: NSLocalizedString(@"Operation was unsuccessful.", nil),
-                               NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"You Reach the max number of concurrent requests.", nil)
-                               };
-    
-    return [NSError errorWithDomain:NSCocoaErrorDomain
-                               code:-57
-                           userInfo:userInfo];
-}
+
 
 -(void) extendingBackGroundTaskTime{
     UIBackgroundTaskIdentifier backgroundTask  = 0;
@@ -114,6 +118,25 @@ NSOperationQueue *taskQueue;
         
     }];
     
+    
+}
+
+-(void)downloadImageFromURL:(NSString *)urlString successCompletionHandler:(void (^)(NSData* imageData))success failureCompletionHandler:(void (^)(NSError * error))failure{
+    
+    [self extendingBackGroundTaskTime];
+    
+    [taskQueue addOperationWithBlock:^{
+        
+        NSURL *imageURL = [NSURL URLWithString:urlString];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        if(imageData != nil){
+            success(imageData);
+        }else{
+            NSError* error = [ErrorUtility errorWithCode:-7 localizedDescriptionKey:@"Faild to download the image." localizedFailureReasonErrorKey:@"This is probably a result of Apple's new app transport security denying a non-HTTPS request " localizedRecoverySuggestionErrorKey:@"Try to add <key>NSAppTransportSecurity </key><><dict><key>NSAllowsArbitraryLoads</key><true/></dict> to your plist"];
+            
+            failure(error);
+        }
+    }];
     
 }
 @end

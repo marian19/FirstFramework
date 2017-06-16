@@ -11,15 +11,15 @@
 
 @interface TasksManager : NSObject
 
-+ (TasksManager *)sharedHTTPClient;
++ (TasksManager *) sharedTasksManager;
 
 -(void) executingTasksInSerialOrder:(BOOL)isFIFO;
 
 
 
-- (void)dataTaskWithURL:(NSString *)urlString method:(HTTPRequestMethod)HTTPRequestMethod withParameters:(NSDictionary*)parameters successCompletionHandler:(void (^)(id  responseObject))success failureCompletionHandler:(void (^)(NSError * error))failure;
+- (void)dataTaskWithURL:(NSString *)urlString method:(HTTPRequestMethod)HTTPRequestMethod withParameters:(NSDictionary*)parameters successCompletionHandler:(void (^)(NSData*  responseData))success failureCompletionHandler:(void (^)(NSError * error))failure;
 
 
-
+-(void)downloadImageFromURL:(NSString *)urlString successCompletionHandler:(void (^)(NSData* imageData))success failureCompletionHandler:(void (^)(NSError * error))failure;
 
 @end

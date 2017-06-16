@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		563614C01EF41CC70002B387 /* Enumrations.h in Headers */ = {isa = PBXBuildFile; fileRef = 563614BF1EF41CC70002B387 /* Enumrations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		566E26881EF34AE700E20924 /* FirstFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566E267E1EF34AE700E20924 /* FirstFramework.framework */; };
 		566E268D1EF34AE700E20924 /* FirstFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E268C1EF34AE700E20924 /* FirstFrameworkTests.m */; };
 		566E268F1EF34AE800E20924 /* FirstFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E26811EF34AE700E20924 /* FirstFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		566E26A61EF34B9100E20924 /* Task.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E269C1EF34B9100E20924 /* Task.h */; };
+		566E26A61EF34B9100E20924 /* Task.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E269C1EF34B9100E20924 /* Task.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		566E26A71EF34B9100E20924 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E269D1EF34B9100E20924 /* Task.m */; };
-		566E26A81EF34B9100E20924 /* TasksManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E269E1EF34B9100E20924 /* TasksManager.h */; };
+		566E26A81EF34B9100E20924 /* TasksManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E269E1EF34B9100E20924 /* TasksManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		566E26A91EF34B9100E20924 /* TasksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E269F1EF34B9100E20924 /* TasksManager.m */; };
 		566E26AE1EF34D6D00E20924 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E26AC1EF34D6D00E20924 /* Reachability.h */; };
 		566E26AF1EF34D6D00E20924 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E26AD1EF34D6D00E20924 /* Reachability.m */; };
+		566E26F11EF365EF00E20924 /* UIImageView+FirstFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 566E26EF1EF365EF00E20924 /* UIImageView+FirstFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		566E26F21EF365EF00E20924 /* UIImageView+FirstFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 566E26F01EF365EF00E20924 /* UIImageView+FirstFramework.m */; };
+		56F228231EF458BA002C4792 /* ErrorUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 56F228211EF458BA002C4792 /* ErrorUtility.h */; };
+		56F228241EF458BA002C4792 /* ErrorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F228221EF458BA002C4792 /* ErrorUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		563614BF1EF41CC70002B387 /* Enumrations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enumrations.h; sourceTree = "<group>"; };
 		566E267E1EF34AE700E20924 /* FirstFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirstFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		566E26811EF34AE700E20924 /* FirstFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstFramework.h; sourceTree = "<group>"; };
 		566E26821EF34AE700E20924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,6 +47,10 @@
 		566E269F1EF34B9100E20924 /* TasksManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksManager.m; sourceTree = "<group>"; };
 		566E26AC1EF34D6D00E20924 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		566E26AD1EF34D6D00E20924 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		566E26EF1EF365EF00E20924 /* UIImageView+FirstFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+FirstFramework.h"; sourceTree = "<group>"; };
+		566E26F01EF365EF00E20924 /* UIImageView+FirstFramework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+FirstFramework.m"; sourceTree = "<group>"; };
+		56F228211EF458BA002C4792 /* ErrorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorUtility.h; sourceTree = "<group>"; };
+		56F228221EF458BA002C4792 /* ErrorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +100,12 @@
 				566E269E1EF34B9100E20924 /* TasksManager.h */,
 				566E269F1EF34B9100E20924 /* TasksManager.m */,
 				566E26811EF34AE700E20924 /* FirstFramework.h */,
+				563614BF1EF41CC70002B387 /* Enumrations.h */,
 				566E26821EF34AE700E20924 /* Info.plist */,
+				566E26EF1EF365EF00E20924 /* UIImageView+FirstFramework.h */,
+				566E26F01EF365EF00E20924 /* UIImageView+FirstFramework.m */,
+				56F228211EF458BA002C4792 /* ErrorUtility.h */,
+				56F228221EF458BA002C4792 /* ErrorUtility.m */,
 			);
 			path = FirstFramework;
 			sourceTree = "<group>";
@@ -111,10 +126,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				563614C01EF41CC70002B387 /* Enumrations.h in Headers */,
 				566E268F1EF34AE800E20924 /* FirstFramework.h in Headers */,
+				56F228231EF458BA002C4792 /* ErrorUtility.h in Headers */,
 				566E26AE1EF34D6D00E20924 /* Reachability.h in Headers */,
 				566E26A81EF34B9100E20924 /* TasksManager.h in Headers */,
 				566E26A61EF34B9100E20924 /* Task.h in Headers */,
+				566E26F11EF365EF00E20924 /* UIImageView+FirstFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +236,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56F228241EF458BA002C4792 /* ErrorUtility.m in Sources */,
+				566E26F21EF365EF00E20924 /* UIImageView+FirstFramework.m in Sources */,
 				566E26A71EF34B9100E20924 /* Task.m in Sources */,
 				566E26AF1EF34D6D00E20924 /* Reachability.m in Sources */,
 				566E26A91EF34B9100E20924 /* TasksManager.m in Sources */,
@@ -344,6 +364,8 @@
 		566E26931EF34AE800E20924 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = ER5UCCR296;
@@ -354,6 +376,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Marian.FirstFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -363,6 +386,8 @@
 		566E26941EF34AE800E20924 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = ER5UCCR296;
@@ -373,6 +398,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Marian.FirstFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -420,6 +446,7 @@
 				566E26941EF34AE800E20924 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		566E26951EF34AE800E20924 /* Build configuration list for PBXNativeTarget "FirstFrameworkTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +455,7 @@
 				566E26971EF34AE800E20924 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

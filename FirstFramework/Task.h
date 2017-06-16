@@ -7,16 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Enumrations.h"
 
-typedef enum {
-    HTTPRequestGET  = 0,
-    HTTPRequestPOST = 1,
-    HTTPRequestPUT  = 2,
-    HTTPRequestDELETE = 3
-}HTTPRequestMethod;
 
-#define kImageTypeArray @"POST", @"GET", @"PUT", @"DELETE", nil
+@interface Task : NSObject<NSURLSessionDelegate>
 
-@interface Task : NSObject
--(void)dataTaskWithURL:(NSString *)urlString method:(HTTPRequestMethod)HTTPRequestMethod withParameters:(NSDictionary*)parameters successCompletionHandler:(void (^)(id  responseObject))success failureCompletionHandler:(void (^)(NSError * error))failure;
+-(void)dataTaskWithURL:(NSString *)urlString method:(HTTPRequestMethod)HTTPRequestMethod withParameters:(NSDictionary*)parameters successCompletionHandler:(void (^)(NSData*  responseData))success failureCompletionHandler:(void (^)(NSError * error))failure;
 @end
