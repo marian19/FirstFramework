@@ -11,6 +11,7 @@
 
 
 @interface Task : NSObject<NSURLSessionDelegate>
++ (Task *)sharedTask;
 
 -(void)dataTaskWithURL:(NSString *)urlString method:(HTTPRequestMethod)HTTPRequestMethod withParameters:(NSDictionary*)parameters successCompletionHandler:(void (^)(NSData*  responseData))success failureCompletionHandler:(void (^)(NSError * error))failure;
 @end

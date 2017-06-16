@@ -12,6 +12,17 @@
 
 @implementation Task
 
++ (Task *)sharedTask
+{
+    static Task *_sharedTask = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedTask = [[Task alloc] init];
+    });
+    
+    return _sharedTask;
+}
 
 -(void)dataTaskWithURL:(NSString *)urlString method:(HTTPRequestMethod)HTTPRequestMethod withParameters:(NSDictionary*)parameters successCompletionHandler:(void (^)(NSData*  responseData))success failureCompletionHandler:(void (^)(NSError * error))failure{
     
@@ -99,7 +110,7 @@
             }
             
         }else{
-            NSLog(@"fail %@",error.description);
+            NSLog(@"error %@",error.description);
             
             failure(error);
         }

@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
 s.name = "FirstFramework"
-s.version = "0.0.5"
+s.version = "0.0.7"
 s.platform     = :ios, "9.0"
 s.summary = "FirstFramework for HTTPConection."
 s.homepage = "https://github.com/marian19/FirstFramework"

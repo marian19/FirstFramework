@@ -45,18 +45,18 @@ NSOperationQueue *taskQueue;
             
             [self extendingBackGroundTaskTime];
             
-            [[Task new] dataTaskWithURL:urlString method:HTTPRequestMethod withParameters:parameters successCompletionHandler:^(NSData* responseData) {
+            [[Task sharedTask] dataTaskWithURL:urlString method:HTTPRequestMethod withParameters:parameters successCompletionHandler:^(NSData* responseData) {
                 success(responseData);
                 
             } failureCompletionHandler:^(NSError *error) {
                 failure(error);
-                NSLog(@"fail %@",error.description);
+                NSLog(@"error %@",error.description);
                 
             }];
         }];
         
     }else{
-        NSLog(@"fail %@",error.description);
+        NSLog(@"error %@",error.description);
         
         failure(error);
     }
@@ -69,7 +69,6 @@ NSOperationQueue *taskQueue;
     
     NSUInteger numberOfRequest = taskQueue.operationCount;
     
-    NSLog(@" taskQueue.operationCount %lu" , (unsigned long)taskQueue.operationCount);
     Reachability *reachability = Reachability.reachabilityForInternetConnection;
     
     BOOL isReachabilityStartNotifier = reachability.startNotifier;
@@ -79,14 +78,12 @@ NSOperationQueue *taskQueue;
             
             
             error = [ErrorUtility errorWithCode:-8 localizedDescriptionKey:@"Operation was unsuccessful." localizedFailureReasonErrorKey:@"Check your internet Connection" localizedRecoverySuggestionErrorKey:nil];
-            NSLog(@"NotReachable %@",error.description);
             
         }else if ([reachability currentReachabilityStatus] == ReachableViaWiFi) {
             
             if (numberOfRequest > 6) {
                 
                 error = [ErrorUtility getReachMaxNumberRequestsError];
-                NSLog(@" ReachableViaWiFi %@",error.description);
                 
             }
             
@@ -94,13 +91,12 @@ NSOperationQueue *taskQueue;
             if (numberOfRequest > 2) {
                 
                 error = [ErrorUtility getReachMaxNumberRequestsError];
-                NSLog(@"ReachableViaWWAN %@",error.description);
                 
             }
             
         }
         if (error != nil) {
-            NSLog(@"%@",error.description);
+            NSLog(@"error %@",error.description);
             
         }
     }

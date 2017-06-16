@@ -63,7 +63,6 @@ UIActivityIndicatorView *activityIndicator;
     [[TasksManager sharedTasksManager] downloadImageFromURL:url successCompletionHandler:^(NSData *imageData) {
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            NSLog(@"image data %@",imageData);
             [weakSelf removeActivityIndicator];
 
             self.image = [UIImage imageWithData:imageData];
@@ -73,8 +72,6 @@ UIActivityIndicatorView *activityIndicator;
     } failureCompletionHandler:^(NSError *error) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [weakSelf removeActivityIndicator];
-
-            NSLog(@"%@",error.description);
             
         }];
     }];
