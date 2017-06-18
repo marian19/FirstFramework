@@ -38,7 +38,7 @@
 		563614BF1EF41CC70002B387 /* Enumrations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enumrations.h; sourceTree = "<group>"; };
 		566E267E1EF34AE700E20924 /* FirstFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirstFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		566E26811EF34AE700E20924 /* FirstFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstFramework.h; sourceTree = "<group>"; };
-		566E26821EF34AE700E20924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		566E26821EF34AE700E20924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = FirstFramework/Info.plist; sourceTree = "<group>"; };
 		566E26871EF34AE700E20924 /* FirstFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirstFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		566E268E1EF34AE700E20924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		566E269C1EF34B9100E20924 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -78,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				566E26801EF34AE700E20924 /* FirstFramework */,
+				566E26821EF34AE700E20924 /* Info.plist */,
 				566E268B1EF34AE700E20924 /* FirstFrameworkTests */,
 				566E267F1EF34AE700E20924 /* Products */,
 			);
@@ -95,19 +96,14 @@
 		566E26801EF34AE700E20924 /* FirstFramework */ = {
 			isa = PBXGroup;
 			children = (
-				566E26AC1EF34D6D00E20924 /* Reachability.h */,
-				566E26AD1EF34D6D00E20924 /* Reachability.m */,
+				566E26811EF34AE700E20924 /* FirstFramework.h */,
 				566E269C1EF34B9100E20924 /* Task.h */,
 				566E269D1EF34B9100E20924 /* Task.m */,
 				566E269E1EF34B9100E20924 /* TasksManager.h */,
 				566E269F1EF34B9100E20924 /* TasksManager.m */,
-				566E26811EF34AE700E20924 /* FirstFramework.h */,
-				563614BF1EF41CC70002B387 /* Enumrations.h */,
-				566E26821EF34AE700E20924 /* Info.plist */,
-				566E26EF1EF365EF00E20924 /* UIImageView+FirstFramework.h */,
-				566E26F01EF365EF00E20924 /* UIImageView+FirstFramework.m */,
-				56F228211EF458BA002C4792 /* ErrorUtility.h */,
-				56F228221EF458BA002C4792 /* ErrorUtility.m */,
+				5683F65F1EF493C1007D4EA8 /* Reachability */,
+				5683F65D1EF4935B007D4EA8 /* Util */,
+				5683F65E1EF49399007D4EA8 /* UIKit+FirstFramework */,
 			);
 			path = FirstFramework;
 			sourceTree = "<group>";
@@ -120,6 +116,34 @@
 				5683F65A1EF473F1007D4EA8 /* TasksManagerTests.m */,
 			);
 			path = FirstFrameworkTests;
+			sourceTree = "<group>";
+		};
+		5683F65D1EF4935B007D4EA8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				563614BF1EF41CC70002B387 /* Enumrations.h */,
+				56F228211EF458BA002C4792 /* ErrorUtility.h */,
+				56F228221EF458BA002C4792 /* ErrorUtility.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		5683F65E1EF49399007D4EA8 /* UIKit+FirstFramework */ = {
+			isa = PBXGroup;
+			children = (
+				566E26EF1EF365EF00E20924 /* UIImageView+FirstFramework.h */,
+				566E26F01EF365EF00E20924 /* UIImageView+FirstFramework.m */,
+			);
+			name = "UIKit+FirstFramework";
+			sourceTree = "<group>";
+		};
+		5683F65F1EF493C1007D4EA8 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				566E26AC1EF34D6D00E20924 /* Reachability.h */,
+				566E26AD1EF34D6D00E20924 /* Reachability.m */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
